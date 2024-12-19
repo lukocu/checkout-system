@@ -63,11 +63,19 @@ public class BasketItem {
         this.totalPrice = product.getNormalPrice()  
                 .multiply(BigDecimal.valueOf(quantity));  
         this.hasSpecialPrice = false;  
-    }  
+    }
 
-    public BigDecimal getUnitPrice() {  
-        return product.getNormalPrice();  
-    }  
+    public BasketItem(BasketItem other) {
+        this.product = other.getProduct();
+        this.quantity = other.getQuantity();
+    }
+
+    public void decreaseQuantity(int amount) {
+        if (amount > this.quantity) {
+            throw new IllegalArgumentException("Nie można odjąć więcej niż dostępna ilość");
+        }
+        this.quantity -= amount;
+    }
 
     @Override  
     public String toString() {  

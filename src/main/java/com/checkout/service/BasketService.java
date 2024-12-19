@@ -9,40 +9,37 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
-@Service  
-@RequiredArgsConstructor  
-public class BasketService {  
-    private final Map<String, BasketItem> items = new ConcurrentHashMap<>();  
+@Service
+@RequiredArgsConstructor
+public class BasketService {
+    private final Map<String, BasketItem> items = new ConcurrentHashMap<>();
 
     public void addProduct(Product product, int quantity) {
-        items.compute(product.getCode(), (key, existingItem) -> {  
-            if (existingItem == null) {  
-                return new BasketItem(product, quantity);  
-            }  
-            existingItem.addQuantity(quantity);  
-            return existingItem;  
-        });  
+        items.compute(product.getCode(), (key, existingItem) -> {
+            if (existingItem == null) {
+                return new BasketItem(product, quantity);
+            }
+            existingItem.addQuantity(quantity);
+            return existingItem;
+        });
     }
 
     public BigDecimal calculateTotal() {
         return items.values().stream()
-                .map(BasketItem::getTotalPrice)
+                .map(item -> item.getProduct().getNormalPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-
-    public List<BasketItem> getItems() {  
-        return new ArrayList<>(items.values());  
+    public List<BasketItem> getItems() {
+        return new ArrayList<>(items.values());
     }
 
     public boolean isEmpty() {
         return items.isEmpty();
     }
 
-
-    public void clear() {  
-        items.clear();  
-    }  
+    public void clear() {
+        items.clear();
+    }
 }

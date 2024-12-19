@@ -1,7 +1,6 @@
 package com.checkout.controller;
 
 import com.checkout.dto.ReceiptDTO;
-import com.checkout.dto.request.FinalizePurchaseRequest;
 import com.checkout.dto.request.ScanProductRequest;
 import com.checkout.dto.response.BasketStateResponse;
 import com.checkout.service.CheckoutService;
@@ -9,7 +8,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;  
 

@@ -1,11 +1,12 @@
 package com.checkout.dto.request;  
 
 import io.swagger.v3.oas.annotations.media.Schema;  
-import jakarta.validation.constraints.NotNull;  
-import lombok.Builder;  
-import lombok.Value;  
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-@Value  
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder  
 @Schema(description = "Request for finalizing purchase")  
 public class FinalizePurchaseRequest {  

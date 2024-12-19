@@ -1,6 +1,6 @@
 package com.checkout.Config;
 
-import com.checkout.mapper.BundlePromotionRepository;
+import com.checkout.repository.BundlePromotionRepository;
 import com.checkout.model.BundlePromotion;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

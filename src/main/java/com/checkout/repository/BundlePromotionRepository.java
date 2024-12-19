@@ -1,4 +1,4 @@
-package com.checkout.mapper;
+package com.checkout.repository;
 
 import com.checkout.model.BundlePromotion;
 import org.springframework.data.jpa.repository.JpaRepository;
