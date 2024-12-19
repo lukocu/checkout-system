@@ -34,7 +34,7 @@ The **Checkout System** is a Spring Boot-based application designed to manage pr
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/checkout-system.git
+   git clone https://github.com/lukocu/checkout-system.git
    cd checkout-system
    ```
 
